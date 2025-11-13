@@ -27,8 +27,7 @@
           },
           "configurations": {
             "production": {
-              "outputPath": "docs",
-              "baseHref": "/porfolio/",
+              "outputPath": "docs/browser",
               "budgets": [
                 {
                   "type": "initial",
