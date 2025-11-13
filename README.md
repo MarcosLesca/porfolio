@@ -38,9 +38,58 @@ npm install
 
 ```bash
 npm start      # Inicia el servidor de desarrollo (http://localhost:4200)
-npm run build  # Genera el build de producción en dist/
+npm run build  # Genera el build de producción en docs/
 npm test       # Ejecuta los tests unitarios (si se agregan)
 ```
+
+## Despliegue en GitHub Pages
+
+1. **Configurar el build para GitHub Pages:**
+   - El `base href` está configurado como `/porfolio/` en `src/index.html`
+   - El output path está configurado como `docs/` en `angular.json`
+   - Asegúrate de que tu repositorio se llame exactamente `porfolio`
+
+2. **Construir el proyecto:**
+   ```bash
+   npm run build
+   ```
+
+3. **Configurar GitHub Pages:**
+   - Ve a Settings > Pages en tu repositorio de GitHub
+   - Selecciona la rama `main` (o `master`)
+   - **IMPORTANTE:** Selecciona la carpeta `/docs/browser` como fuente (no `/docs`)
+   - Guarda los cambios
+
+4. **Verificar el nombre del repositorio:**
+   - **CRÍTICO:** El `base href` en `src/index.html` debe coincidir exactamente con el nombre de tu repositorio
+   - Si tu repositorio se llama `porfolio`, el `base href` debe ser `/porfolio/`
+   - Si tu repositorio tiene un nombre diferente, debes:
+     - Actualizar el `base href` en `src/index.html` (ej: si tu repo se llama "mi-portfolio", cambia a `/mi-portfolio/`)
+     - Actualizar la ruta del banner en `src/app/pages/home/home.css` (línea 47): cambiar `/porfolio/assets/Banner.png` a `/tu-nombre-repo/assets/Banner.png`
+     - Reconstruir el proyecto con `npm run build`
+
+5. **Estructura del build:**
+   - Angular 17+ genera los archivos en `docs/browser/` por defecto
+   - GitHub Pages debe servir desde `/docs/browser` (carpeta `browser` dentro de `docs`)
+   - Las imágenes están en `src/assets/` y se copian a `docs/browser/assets/` después del build
+   - Las rutas relativas en HTML (`assets/...`) se resuelven desde el `base href` (`/porfolio/`)
+   - La ruta absoluta en CSS (`/porfolio/assets/Banner.png`) debe coincidir con el nombre del repositorio
+
+6. **Solución de problemas:**
+   - Si las imágenes no se cargan (errores 404):
+     1. **Verifica el nombre del repositorio:** Debe coincidir exactamente con el `base href` en `src/index.html` (actualmente `/porfolio/`)
+     2. **Si el repositorio tiene otro nombre:**
+        - Actualiza `src/index.html`: cambia `<base href="/porfolio/">` a `<base href="/tu-nombre-repo/">`
+        - Actualiza `src/app/pages/home/home.css` línea 47: cambia `url('/porfolio/assets/Banner.png')` a `url('/tu-nombre-repo/assets/Banner.png')`
+        - Reconstruye: `npm run build`
+     3. **Verifica la configuración de GitHub Pages:**
+        - GitHub Pages debe servir desde `/docs/browser` (carpeta `browser` dentro de `docs`)
+        - Ve a Settings > Pages > Source y selecciona `/docs/browser`
+     4. **Verifica que los archivos existan:**
+        - Las imágenes deben estar en `src/assets/`
+        - Después del build, deben estar en `docs/browser/assets/`
+        - Si no están, ejecuta `npm run build` nuevamente
+     5. **Limpia la caché del navegador:** Presiona Ctrl+Shift+R (o Cmd+Shift+R en Mac) para recargar sin caché
 
 ## Estructura relevante
 

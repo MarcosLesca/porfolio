@@ -44,7 +44,7 @@
 .hero-section::before {
   content: '';
   @apply absolute inset-0 opacity-10 z-0;
-  background-image: url('/assets/Banner.png');
+  background-image: url('/porfolio/assets/Banner.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
