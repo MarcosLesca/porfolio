@@ -72,10 +72,13 @@ npm test       # Ejecuta los tests unitarios (si se agregan)
 5. **Estructura del build:**
    - Angular 17+ genera los archivos en `docs/browser/` por defecto
    - El script `move-docs.js` mueve los archivos a `docs/` después del build
+   - El script también crea un `404.html` como copia de `index.html` para que GitHub Pages maneje el routing de Angular
    - GitHub Pages debe servir desde `/docs`
    - Las imágenes están en `src/assets/` y se copian a `docs/assets/` después del build
    - Las rutas relativas en HTML (`assets/...`) se resuelven desde el `base href` (`/porfolio/`)
    - La ruta absoluta en CSS (`/porfolio/assets/Banner.png`) debe coincidir con el nombre del repositorio
+
+   **Nota sobre el routing:** El archivo `404.html` permite que GitHub Pages sirva la aplicación Angular cuando recargas la página o navegas directamente a una ruta. Sin este archivo, obtendrías un error 404 al recargar.
 
 6. **Solución de problemas:**
    - Si las imágenes no se cargan (errores 404):

@@ -37,3 +37,16 @@ if (fs.existsSync(browserDir)) {
   console.log('⚠️  La carpeta docs/browser no existe. Ejecuta "npm run build" primero.');
 }
 
+// Crear 404.html como copia de index.html para que GitHub Pages maneje el routing de Angular
+// Esto debe ejecutarse siempre, incluso si browser no existe
+const indexPath = path.join(docsDir, 'index.html');
+const notFoundPath = path.join(docsDir, '404.html');
+
+if (fs.existsSync(indexPath)) {
+  const indexContent = fs.readFileSync(indexPath, 'utf8');
+  fs.writeFileSync(notFoundPath, indexContent, 'utf8');
+  console.log('✅ Archivo 404.html creado para manejar el routing de Angular');
+} else {
+  console.log('⚠️  No se encontró index.html en docs/. Asegúrate de ejecutar el build primero.');
+}
+
