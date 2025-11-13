@@ -473,5 +473,17 @@
   .avatar-image {
     @apply w-48 h-48;
   }
+
+  .hero-social {
+    @apply gap-3 flex-wrap justify-center;
+  }
+
+  .social-link {
+    @apply w-9 h-9;
+  }
+
+  .social-link svg {
+    @apply w-4 h-4;
+  }
 }
 
