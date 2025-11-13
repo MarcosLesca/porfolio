@@ -1,59 +1,72 @@
-# Porfolio
+# Portfolio Web - Marcos Lescano
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
+Este proyecto es un **portfolio personal** construido con Angular 20 y Tailwind CSS. Incluye una página pública con mi información profesional (experiencia, educación, habilidades y proyectos) y una página de inicio de sesión con un diseño moderno.
 
-## Development server
+## Características principales
 
-To start a local development server, run:
+- Página principal con secciones de:
+  - Presentación y enlaces rápidos.
+  - Sobre mí y estadísticas de experiencia.
+  - Experiencia laboral y formación académica.
+  - Habilidades técnicas agrupadas por categorías.
+  - Proyectos destacados y datos de contacto.
+  - Descarga directa del CV en PDF.
+- Página de login con diseño personalizado usando Tailwind CSS.
+- Imágenes optimizadas con `NgOptimizedImage`.
+- Estilos definidos con Tailwind 4 usando `@apply` para facilitar el mantenimiento.
+- Estructura responsive y animaciones suaves.
 
-```bash
-ng serve
-```
+## Tecnologías
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- [Angular 20](https://angular.dev/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- TypeScript, HTML, CSS
+- Herramientas de desarrollo: Angular CLI, Vite build system
 
-## Code scaffolding
+## Requisitos previos
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js 20+
+- npm 10+
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Instalación
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+## Scripts disponibles
 
 ```bash
-ng e2e
+npm start      # Inicia el servidor de desarrollo (http://localhost:4200)
+npm run build  # Genera el build de producción en dist/
+npm test       # Ejecuta los tests unitarios (si se agregan)
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Estructura relevante
 
-## Additional Resources
+```
+src/
+ └── app/
+     ├── pages/
+     │   ├── home/      # Portfolio principal
+     │   └── login/     # Pantalla de inicio de sesión
+     └── auth/          # Guard de autenticación (placeholder)
+public/
+ └── MarcosLescano.pdf  # CV utilizado para las descargas
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Personalización rápida
+
+- Actualiza el contenido de `src/app/pages/home/home.html` para modificar textos, habilidades o proyectos.
+- Ajusta los estilos en `src/app/pages/home/home.css` y `src/app/pages/login/login.css` (Tailwind con `@apply`).
+- Sustituye las imágenes en `public/` (`perfil_recortada.png`, `Banner.png`, `MarcosLescano.pdf`) según sea necesario.
+
+## Próximos pasos sugeridos
+
+- Implementar autenticación real en el guard `auth-guard.ts`.
+- Conectar los formularios con un backend/servicio de contacto.
+- Agregar pruebas unitarias y e2e para garantizar la estabilidad.
+
+## Licencia
+
+Proyecto privado/personal. Ajusta según tus necesidades antes de distribuirlo.
