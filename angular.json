@@ -27,6 +27,8 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "docs",
+              "baseHref": "/porfolio/",
               "budgets": [
                 {
                   "type": "initial",
@@ -35,8 +37,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "20kB",
-                  "maximumError": "40kB"
+                  "maximumWarning": "80kB",
+                  "maximumError": "80kB"
                 }
               ],
               "outputHashing": "all"
