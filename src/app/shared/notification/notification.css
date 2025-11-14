@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+.notification-container {
+  @apply fixed top-6 right-6 z-50 flex flex-col gap-4 max-w-sm pointer-events-none;
+}
+
+.notification-card {
+  @apply flex items-start gap-3 rounded-2xl px-5 py-4 text-sm font-medium leading-snug shadow-xl pointer-events-auto;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: #e2e8f0;
+  animation: toast-enter 0.35s ease forwards;
+}
+
+.notification-success {
+  border-color: rgba(16, 185, 129, 0.6);
+  background: rgba(6, 95, 70, 0.85);
+  color: #d1fae5;
+}
+
+.notification-error {
+  border-color: rgba(248, 113, 113, 0.7);
+  background: rgba(127, 29, 29, 0.9);
+  color: #fee2e2;
+}
+
+.notification-info {
+  border-color: rgba(14, 165, 233, 0.6);
+  background: rgba(12, 74, 110, 0.9);
+  color: #e0f2fe;
+}
+
+.notification-message {
+  @apply flex-1;
+}
+
+.notification-close {
+  @apply text-base transition rounded-full px-2 py-0;
+  color: inherit;
+  background: transparent;
+}
+
+.notification-close:hover {
+  opacity: 0.75;
+}
+
+.notification-closing {
+  animation: toast-exit 0.25s ease forwards;
+}
+
+@keyframes toast-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(20%, -10%, 0) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes toast-exit {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(20%, -10%, 0) scale(0.9);
+  }
+}
+

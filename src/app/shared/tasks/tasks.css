@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+.tasks-container {
+  @apply w-full;
+}
+
+.card-header {
+  @apply flex items-center justify-between mb-6 pb-4 border-b border-slate-700/50;
+}
+
+.chart-title {
+  @apply text-xl font-bold;
+  background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-action {
+  @apply w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  color: #818cf8;
+  cursor: pointer;
+}
+
+.card-action:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: scale(1.1);
+}
+
+.card-action svg {
+  @apply w-4 h-4;
+}
+
+/* Add Task Form */
+.add-task-form {
+  @apply mb-4 pb-4 border-b border-slate-700/50;
+  animation: slideDown 0.3s ease-out;
+}
+
+.input-wrapper {
+  @apply flex items-center gap-2;
+}
+
+.task-input {
+  @apply flex-1 px-4 py-2.5 rounded-xl text-sm text-white transition-all duration-300 outline-none;
+  background: rgba(30, 41, 59, 0.6);
+  border: 2px solid rgba(148, 163, 184, 0.1);
+}
+
+.task-input::placeholder {
+  @apply text-slate-500;
+}
+
+.task-input:hover {
+  border-color: rgba(148, 163, 184, 0.2);
+  background: rgba(30, 41, 59, 0.8);
+}
+
+.task-input:focus {
+  @apply border-indigo-400;
+  background: rgba(30, 41, 59, 0.9);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.add-button {
+  @apply w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 flex-shrink-0;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.add-button:hover:not(:disabled) {
+  @apply -translate-y-0.5;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.add-button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.add-button svg {
+  @apply w-5 h-5;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Empty State */
+.empty-state {
+  @apply flex flex-col items-center justify-center py-12 text-center;
+}
+
+.empty-icon {
+  @apply w-16 h-16 mb-4 text-slate-500 opacity-50;
+}
+
+.empty-text {
+  @apply text-lg font-semibold text-slate-300 mb-2;
+}
+
+.empty-subtext {
+  @apply text-sm text-slate-500;
+}
+
+/* Task List */
+.task-list {
+  @apply space-y-3;
+  counter-reset: task-counter;
+}
+
+.task-item {
+  @apply flex items-center gap-3 p-4 rounded-xl transition-all duration-200;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.05);
+  counter-increment: task-counter;
+}
+
+.task-item::before {
+  content: counter(task-counter) '.';
+  @apply text-sm text-slate-400 font-medium min-w-[24px];
+}
+
+.task-item:hover {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(148, 163, 184, 0.2);
+  transform: translateX(4px);
+}
+
+.task-item.completed {
+  opacity: 0.6;
+}
+
+.task-checkbox {
+  @apply w-5 h-5 rounded border-2 cursor-pointer transition-all duration-200 flex items-center justify-center flex-shrink-0;
+  border-color: rgba(148, 163, 184, 0.3);
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.task-checkbox:hover {
+  border-color: #818cf8;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.task-checkbox.checked {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-color: #818cf8;
+  color: white;
+}
+
+.task-checkbox svg {
+  @apply w-3 h-3;
+}
+
+.task-text {
+  @apply text-sm text-slate-200 flex-1 text-left;
+}
+
+.task-item.completed .task-text {
+  @apply line-through text-slate-500;
+}
+
+.delete-button {
+  @apply w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 flex-shrink-0 opacity-0;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  cursor: pointer;
+}
+
+.task-item:hover .delete-button {
+  opacity: 1;
+}
+
+.delete-button:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.3);
+  transform: scale(1.1);
+}
+
+.delete-button svg {
+  @apply w-4 h-4;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .task-item {
+    @apply p-3;
+  }
+
+  .delete-button {
+    opacity: 1;
+  }
+}
+

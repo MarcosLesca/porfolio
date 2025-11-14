@@ -1,0 +1,422 @@
+@import "tailwindcss";
+
+/* Dashboard Container */
+.dashboard-container {
+  @apply min-h-screen w-full py-8 px-6;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  color: #ffffff;
+}
+
+/* Background Decoration */
+.dashboard-container::before {
+  content: '';
+  @apply fixed top-0 left-0 w-full h-full pointer-events-none z-0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+}
+
+/* Header */
+.dashboard-header {
+  @apply relative z-10 mb-8;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.header-content {
+  @apply max-w-7xl mx-auto flex items-center justify-between gap-4 flex-wrap;
+}
+
+.header-title-section {
+  @apply flex-1 min-w-0;
+}
+
+.dashboard-title {
+  @apply text-4xl md:text-5xl font-bold mb-2;
+  background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dashboard-subtitle {
+  @apply text-lg text-slate-400;
+}
+
+/* Logout Button */
+.logout-button {
+  @apply px-4 py-2.5 rounded-xl flex items-center gap-2 transition-all duration-200;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.logout-button:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.logout-button:active {
+  transform: translateY(0);
+}
+
+.logout-button svg {
+  @apply w-4 h-4;
+}
+
+.logout-button span {
+  @apply hidden sm:inline;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Summary Cards */
+.dashboard-summary {
+  @apply relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 max-w-7xl mx-auto;
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.summary-card {
+  @apply relative rounded-2xl p-6 overflow-hidden transition-all duration-300;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.summary-card::before {
+  content: '';
+  @apply absolute top-0 right-0 w-32 h-32 rounded-full opacity-10 blur-3xl;
+  transition: all 0.3s ease;
+}
+
+.summary-card:hover {
+  @apply -translate-y-1;
+  border-color: rgba(148, 163, 184, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.summary-card-projects::before {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+}
+
+.summary-card-tasks::before {
+  background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+}
+
+.summary-card-messages::before {
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+}
+
+.summary-card-progress::before {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.summary-card .card-icon {
+  @apply w-12 h-12 rounded-xl mb-4 flex items-center justify-center;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #818cf8;
+}
+
+.summary-card-projects .card-icon {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #818cf8;
+}
+
+.summary-card-tasks .card-icon {
+  background: rgba(236, 72, 153, 0.2);
+  border-color: rgba(236, 72, 153, 0.3);
+  color: #f472b6;
+}
+
+.summary-card-messages .card-icon {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: rgba(6, 182, 212, 0.3);
+  color: #22d3ee;
+}
+
+.summary-card-progress .card-icon {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.card-icon svg {
+  @apply w-6 h-6;
+}
+
+.card-content {
+  @apply relative z-10;
+}
+
+.card-title {
+  @apply text-sm font-medium text-slate-400 mb-2;
+}
+
+.summary-value {
+  @apply text-3xl md:text-4xl font-bold mb-2;
+  background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-change {
+  @apply text-xs text-slate-500;
+}
+
+.card-change.positive {
+  @apply text-green-400;
+}
+
+/* Progress Bar */
+.progress-bar {
+  @apply w-full h-2 rounded-full overflow-hidden mt-2;
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.progress-fill {
+  @apply h-full rounded-full transition-all duration-500;
+  background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* Charts Section */
+.dashboard-charts {
+  @apply relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 max-w-7xl mx-auto;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.chart-card {
+  @apply rounded-2xl p-6;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.chart-card:hover {
+  border-color: rgba(148, 163, 184, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+  @apply flex items-center justify-between mb-6 pb-4 border-b border-slate-700/50;
+}
+
+.chart-title {
+  @apply text-xl font-bold;
+  background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-action {
+  @apply w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  color: #818cf8;
+  cursor: pointer;
+}
+
+.card-action:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: scale(1.1);
+}
+
+.card-action svg {
+  @apply w-4 h-4;
+}
+
+/* Activity List */
+.activity-list {
+  @apply space-y-4;
+}
+
+.activity-item {
+  @apply flex items-start gap-4 p-4 rounded-xl transition-all duration-200;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.05);
+}
+
+.activity-item:hover {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(148, 163, 184, 0.2);
+  transform: translateX(4px);
+}
+
+.activity-icon {
+  @apply w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0;
+}
+
+.activity-icon svg {
+  @apply w-5 h-5;
+}
+
+.activity-icon-project {
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.activity-icon-success {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.activity-icon-message {
+  background: rgba(6, 182, 212, 0.2);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.activity-content {
+  @apply flex-1 min-w-0;
+}
+
+.activity-text {
+  @apply text-sm text-slate-200 mb-1;
+}
+
+.activity-time {
+  @apply text-xs text-slate-500;
+}
+
+/* Task List */
+.task-list {
+  @apply space-y-3;
+  counter-reset: task-counter;
+}
+
+.task-item {
+  @apply flex items-center gap-3 p-4 rounded-xl transition-all duration-200;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.05);
+  counter-increment: task-counter;
+}
+
+.task-item:hover {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(148, 163, 184, 0.2);
+  transform: translateX(4px);
+}
+
+.task-item::before {
+  content: counter(task-counter) '.';
+  @apply text-sm text-slate-400 font-medium min-w-[24px];
+}
+
+.task-checkbox {
+  @apply w-5 h-5 rounded border-2 cursor-pointer transition-all duration-200;
+  border-color: rgba(148, 163, 184, 0.3);
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.task-checkbox:hover {
+  border-color: #818cf8;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.task-text {
+  @apply text-sm text-slate-200 flex-1;
+}
+
+/* Tips Section */
+.dashboard-tips {
+  @apply relative z-10 max-w-7xl mx-auto;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.tip-card {
+  @apply flex items-start gap-4 p-6 rounded-2xl;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
+}
+
+.tip-icon {
+  @apply w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #818cf8;
+}
+
+.tip-icon svg {
+  @apply w-6 h-6;
+}
+
+.tip-content {
+  @apply flex-1;
+}
+
+.tip-title {
+  @apply text-lg font-bold mb-2;
+  color: #818cf8;
+}
+
+.tip-text {
+  @apply text-sm text-slate-300 leading-relaxed;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    @apply px-4 py-6;
+  }
+
+  .dashboard-title {
+    @apply text-3xl;
+  }
+
+  .dashboard-summary {
+    @apply grid-cols-1;
+  }
+
+  .summary-card {
+    @apply p-5;
+  }
+
+  .summary-value {
+    @apply text-3xl;
+  }
+
+  .dashboard-charts {
+    @apply grid-cols-1;
+  }
+
+  .chart-card {
+    @apply p-5;
+  }
+}
+

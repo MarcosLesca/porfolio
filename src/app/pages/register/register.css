@@ -14,27 +14,27 @@
 .gradient-orb {
   @apply absolute rounded-full;
   filter: blur(80px);
-  opacity: 0.4;
+  opacity: 0.35;
   animation: float 20s ease-in-out infinite;
 }
 
 .orb-1 {
-  @apply w-[400px] h-[400px] -top-[150px] -left-[150px];
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  @apply w-[450px] h-[450px] -top-[180px] -left-[180px];
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.6) 0%, rgba(139, 92, 246, 0.4) 100%);
   animation-delay: 0s;
 }
 
 .orb-2 {
-  @apply w-[300px] h-[300px] -bottom-[100px] -right-[100px];
-  background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  @apply w-[350px] h-[350px] -bottom-[120px] -right-[120px];
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.6) 0%, rgba(59, 130, 246, 0.4) 100%);
   animation-delay: 5s;
 }
 
 .orb-3 {
-  @apply w-[350px] h-[350px];
-  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  @apply w-[400px] h-[400px];
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.5) 0%, rgba(236, 72, 153, 0.3) 100%);
   top: 50%;
-  right: 10%;
+  right: 8%;
   animation-delay: 10s;
 }
 
@@ -43,16 +43,16 @@
     transform: translate(0, 0) scale(1);
   }
   33% {
-    transform: translate(30px, -30px) scale(1.1);
+    transform: translate(35px, -35px) scale(1.15);
   }
   66% {
-    transform: translate(-20px, 20px) scale(0.9);
+    transform: translate(-25px, 25px) scale(0.9);
   }
 }
 
 /* Main content */
 .login-content {
-  @apply relative z-10 w-full max-w-[440px];
+  @apply relative z-10 w-full max-w-[460px];
   animation: fadeInUp 0.6s ease-out;
 }
 
@@ -72,30 +72,17 @@
   @apply text-center mb-10;
 }
 
-.logo-wrapper {
-  @apply inline-flex items-center justify-center w-[72px] h-[72px] mb-6 rounded-[20px] transition-transform duration-300;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
-  border: 2px solid rgba(99, 102, 241, 0.3);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-}
-
-.logo-wrapper:hover {
-  transform: scale(1.05) rotate(5deg);
-}
-
-.logo-icon {
-  @apply w-9 h-9;
-  color: #818cf8;
-}
-
 .login-title {
-  @apply text-3xl font-bold text-white mb-2;
+  @apply text-4xl font-bold text-white mb-3;
   letter-spacing: -0.025em;
+  background: linear-gradient(135deg, #ffffff 0%, #e879f9 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .login-subtitle {
-  @apply text-[0.9375rem] text-slate-400 font-normal;
+  @apply text-base text-slate-400 font-normal;
 }
 
 /* Form Wrapper */
@@ -106,20 +93,23 @@
   backdrop-filter: blur(20px);
   border: 1px solid rgba(148, 163, 184, 0.1);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-form-wrapper::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-full pointer-events-none;
+  background: radial-gradient(circle at 50% 0%, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
 }
 
 .login-form {
-  @apply flex flex-col gap-6;
+  @apply flex flex-col gap-6 relative z-10;
 }
-
 
 /* Input Groups */
 .input-group {
   @apply flex flex-col gap-2;
-}
-
-.input-label-row {
-  @apply flex justify-between items-center;
 }
 
 .input-label {
@@ -128,7 +118,12 @@
 
 .input-icon {
   @apply w-[18px] h-[18px];
-  color: #818cf8;
+  color: #e879f9;
+  transition: color 0.3s ease;
+}
+
+.input-group:focus-within .input-icon {
+  color: #f472b6;
 }
 
 .input-field {
@@ -142,34 +137,39 @@
 }
 
 .input-field:hover {
-  border-color: rgba(148, 163, 184, 0.2);
+  border-color: rgba(236, 72, 153, 0.3);
   background: rgba(30, 41, 59, 0.8);
 }
 
 .input-field:focus {
-  @apply border-indigo-400;
+  @apply border-pink-400;
   background: rgba(30, 41, 59, 0.9);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
 }
 
 .input-error {
   @apply text-xs text-red-400 mt-1 flex items-center gap-1;
+  animation: shake 0.3s ease-in-out;
 }
 
-/* Forgot Password Link */
-.forgot-password-link {
-  @apply text-[0.8125rem] text-indigo-400 font-medium no-underline transition-colors duration-200;
-}
-
-.forgot-password-link:hover {
-  @apply text-indigo-300 underline;
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
 }
 
 /* Submit Button */
 .submit-button {
   @apply w-full px-6 py-3.5 mt-2 rounded-xl text-white text-[0.9375rem] font-semibold cursor-pointer flex items-center justify-center gap-2 transition-all duration-300 relative overflow-hidden;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.4);
+  background: linear-gradient(135deg, #ec4899 0%, #a855f7 50%, #6366f1 100%);
+  box-shadow: 0 4px 14px 0 rgba(236, 72, 153, 0.4);
+  border: none;
 }
 
 .submit-button::before {
@@ -185,7 +185,8 @@
 
 .submit-button:hover:not(:disabled) {
   @apply -translate-y-0.5;
-  box-shadow: 0 6px 20px 0 rgba(99, 102, 241, 0.5);
+  box-shadow: 0 6px 20px 0 rgba(236, 72, 153, 0.5);
+  background: linear-gradient(135deg, #f472b6 0%, #c084fc 50%, #818cf8 100%);
 }
 
 .submit-button:active:not(:disabled) {
@@ -193,7 +194,8 @@
 }
 
 .submit-button:disabled {
-  @apply opacity-50 cursor-not-allowed;
+  @apply opacity-60 cursor-not-allowed;
+  transform: none;
 }
 
 .button-icon {
@@ -206,7 +208,7 @@
 
 /* Register Section */
 .register-section {
-  @apply mt-8 pt-8 border-t border-slate-700/10 text-center;
+  @apply mt-8 pt-8 border-t border-slate-700/50 text-center relative z-10;
 }
 
 .register-text {
@@ -214,11 +216,11 @@
 }
 
 .register-link {
-  @apply text-indigo-400 font-semibold no-underline ml-2 transition-colors duration-200;
+  @apply text-pink-400 font-semibold no-underline ml-2 transition-colors duration-200;
 }
 
 .register-link:hover {
-  @apply text-indigo-300 underline;
+  @apply text-pink-300 underline;
 }
 
 /* Responsive Design */
@@ -232,10 +234,16 @@
   }
 
   .login-title {
-    @apply text-[1.75rem];
+    @apply text-3xl;
   }
 
-  .orb-1, .orb-2, .orb-3 {
-    opacity: 0.2;
+  .gradient-orb {
+    opacity: 0.25;
+  }
+
+  .orb-1,
+  .orb-2,
+  .orb-3 {
+    filter: blur(60px);
   }
 }

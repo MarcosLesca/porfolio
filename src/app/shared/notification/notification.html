@@ -1,0 +1,20 @@
+@if (notifications().length) {
+  <div class="notification-container">
+    @for (notification of notifications(); track notification.id) {
+      <div
+        class="notification-card"
+        [ngClass]="{
+          'notification-success': notification.type === 'success',
+          'notification-error': notification.type === 'error',
+          'notification-info': notification.type === 'info',
+          'notification-closing': notification.closing
+        }"
+      >
+        <span class="notification-message">{{ notification.message }}</span>
+        <button class="notification-close" type="button" (click)="dismiss(notification.id)">
+          ✕
+        </button>
+      </div>
+    }
+  </div>
+}

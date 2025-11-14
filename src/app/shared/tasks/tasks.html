@@ -1,0 +1,78 @@
+<div class="tasks-container">
+  <div class="card-header">
+    <h3 class="chart-title">Tareas por completar</h3>
+    <button 
+      class="card-action" 
+      title="Añadir tarea"
+      (click)="showAddForm = !showAddForm">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+    </button>
+  </div>
+
+  @if (showAddForm) {
+    <div class="add-task-form">
+      <div class="input-wrapper">
+        <input
+          type="text"
+          [(ngModel)]="newTaskText"
+          (keydown)="onKeyPress($event)"
+          placeholder="Escribe una nueva tarea..."
+          class="task-input"
+          autofocus
+        />
+        <button
+          (click)="addTask()"
+          [disabled]="!newTaskText.trim()"
+          class="add-button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  }
+
+  @if (tasks().length === 0) {
+    <div class="empty-state">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="empty-icon">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+      <p class="empty-text">¡No hay tareas!</p>
+      <p class="empty-subtext">Agrega una nueva tarea para comenzar</p>
+    </div>
+  } @else {
+    <ol class="task-list">
+      @for (task of tasks(); track task.id) {
+        <li class="task-item" [class.completed]="task.completed">
+          <button
+            (click)="toggleTask(task.id)"
+            class="task-checkbox"
+            [class.checked]="task.completed"
+            [attr.aria-label]="task.completed ? 'Marcar como pendiente' : 'Marcar como completada'">
+            @if (task.completed) {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            }
+          </button>
+          <span class="task-text">{{ task.text }}</span>
+          <button
+            (click)="deleteTask(task.id)"
+            class="delete-button"
+            title="Eliminar tarea">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+          </button>
+        </li>
+      }
+    </ol>
+  }
+</div>
+

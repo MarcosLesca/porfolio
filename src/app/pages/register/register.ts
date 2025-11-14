@@ -4,17 +4,17 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { finalize } from 'rxjs/operators';
 
 import { AuthService } from '../../auth/auth-service';
-import { LoginCredentials } from '../../models/auth';
+import { RegisterCredentials } from '../../models/auth';
 import { NotificationService } from '../../shared/notification/notification.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './login.html',
-  styleUrl: './login.css',
+  templateUrl: './register.html',
+  styleUrl: './register.css',
 })
-export class Login {
+export class Register {
   isSubmitting = false;
 
   constructor(
@@ -23,23 +23,24 @@ export class Login {
     private notificationService: NotificationService
   ) {}
 
-  loginForm = new FormGroup({
+  registerForm = new FormGroup({
+    name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
 
   onSubmit(): void {
-    if (this.loginForm.invalid) {
-      this.loginForm.markAllAsTouched();
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
       return;
     }
 
     this.isSubmitting = true;
 
-    const credentials = this.loginForm.getRawValue() as LoginCredentials;
+    const credentials = this.registerForm.getRawValue() as RegisterCredentials;
 
     this.authService
-      .login(credentials)
+      .register(credentials)
       .pipe(
         finalize(() => {
           this.isSubmitting = false;
@@ -47,19 +48,19 @@ export class Login {
       )
       .subscribe({
         next: () => {
-          this.loginForm.reset();
-          this.notificationService.success('Inicio de sesión exitoso.');
+          this.registerForm.reset();
+          this.notificationService.success('Cuenta creada con éxito.');
           this.router.navigate(['/dashboard']);
         },
         error: (error) => {
-          console.error('Error al iniciar sesión', error);
-          this.loginForm.setErrors({ incorrect: true });
-          this.loginForm.get('password')?.setErrors({ incorrect: true });
-          this.loginForm.get('email')?.setErrors({ incorrect: true });
+          console.error('Error al registrarse', error);
+          this.registerForm.setErrors({ failed: true });
+          this.registerForm.get('password')?.setErrors({ failed: true });
           const message =
-            error?.error?.message ?? 'No pudimos iniciar sesión. Revisa tus credenciales.';
+            error?.error?.message ?? 'No pudimos crear tu cuenta. Inténtalo nuevamente.';
           this.notificationService.error(message);
         },
       });
   }
 }
+
