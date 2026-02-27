@@ -47,12 +47,11 @@
       <div class="hero-image">
         <div class="avatar-wrapper">
           <img
-            ngSrc="assets/perfil_recortada.png"
+            src="assets/perfil_recortada.png"
             alt="Marcos Lescano"
             width="256"
             height="256"
-            class="avatar-image"
-            priority>
+            class="avatar-image">
         </div>
       </div>
     </div>
@@ -144,11 +143,27 @@
           <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="tech-icon"><title>Supabase</title><path fill="#3FCF8E" d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></svg>
           <span>Supabase</span>
         </div>
-
-
       </div>
     </div>
   </section>
+
+  <!-- Tools & Info Bar -->
+  <div class="tools-info-bar">
+    <div class="tools-info-item">
+      <span class="tools-info-label">Idiomas</span>
+      <span class="tools-info-value">Español (Nativo) · Inglés B2</span>
+    </div>
+    <div class="tools-info-divider"></div>
+    <div class="tools-info-item">
+      <span class="tools-info-label">S.O.</span>
+      <span class="tools-info-value">Windows · Linux</span>
+    </div>
+    <div class="tools-info-divider"></div>
+    <div class="tools-info-item">
+      <span class="tools-info-label">Herramientas</span>
+      <span class="tools-info-value">GitHub · VS Code · Postman · Docker · Cursor</span>
+    </div>
+  </div>
 
   <!-- About Section -->
   <section id="sobre-mi" class="section about-section">
@@ -157,15 +172,13 @@
       <div class="about-content">
         <div class="about-text">
           <p>
-            Soy desarrollador Fullstack con experiencia en el desarrollo de sistemas internos, plataformas para clientes
-            y automatización de procesos logísticos en <strong>Agronorte, concesionario oficial John Deere</strong>.
-            Apasionado por el diseño de software escalable y la optimización de procesos, con el objetivo de evolucionar
-            hacia el rol de <strong>Arquitecto de Software</strong> y contribuir en entornos de desarrollo de alto rendimiento.
+            Soy desarrollador <strong>Fullstack SemiSenior</strong> con una mirada orientada a la automatización y el diseño de software escalable. 
+            Combino mi trabajo en <strong>Agronorte</strong> (concesionario oficial John Deere) con mi emprendimiento <strong>LYM Desarrollo Web</strong>, 
+            lo que me permite vivir los dos mundos: sistemas empresariales y soluciones para pequeños negocios.
           </p>
           <p>
-            Actualmente trabajo como <strong>Desarrollador Fullstack</strong> donde desarrollo e implemento sistemas de logística,
-            automatizo procesos internos y diseño plataformas digitales para clientes con integración a APIs personalizadas.
-            Me especializo en la creación de sistemas administrativos y de soporte técnico utilizando tecnologías modernas.
+            Mi objetivo es seguir evolucionando hacia el rol de <strong>Arquitecto de Software</strong>, contribuyendo en entornos de desarrollo 
+            de alto rendimiento. Me caracteriza resolver problemas complejos con soluciones simples y automatizar lo tedioso.
           </p>
         </div>
         <div class="about-stats">
@@ -178,8 +191,8 @@
             <span class="stat-label">Proyectos Completados</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">15+</span>
-            <span class="stat-label">Tecnologías Dominadas</span>
+            <span class="stat-number">2</span>
+            <span class="stat-label">Proyectos Activos</span>
           </div>
         </div>
       </div>
@@ -191,6 +204,34 @@
     <div class="container">
       <h2 class="section-title">Experiencia</h2>
       <div class="experience-timeline">
+        <!-- LYM Desarrollo Web -->
+        <div class="experience-item">
+          <div class="experience-marker"></div>
+          <div class="experience-content">
+            <div class="experience-header">
+              <h3 class="experience-title">Co-Founder & Fullstack Developer</h3>
+              <span class="experience-company">LYM Desarrollo Web</span>
+              <span class="experience-location">San Justo, Santa Fe</span>
+              <span class="experience-period">Enero 2024 - Actualidad</span>
+            </div>
+            <ul class="experience-description">
+              <li>Emprendimiento conjunto con mi pareja Loana Vera orientado a desarrollo web para pequeños negocios</li>
+              <li>Web-app de red social para mascotas "Mascotas San Justo" (opensource, 100+ usuarios)</li>
+              <li>Sistema de turnos online para salones de belleza, barberías y profesionales independientes</li>
+              <li>Demos funcionales para inmobiliarias y múltiples rubros</li>
+            </ul>
+            <div class="experience-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">Vercel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agronorte -->
         <div class="experience-item">
           <div class="experience-marker"></div>
           <div class="experience-content">
@@ -201,10 +242,10 @@
               <span class="experience-period">Junio 2023 - Actualidad</span>
             </div>
             <ul class="experience-description">
-              <li>Desarrollo e implementación de un sistema de logística para la gestión de entregas, stock y seguimiento de pedidos.</li>
-              <li>Automatización de procesos internos, mejorando la eficiencia operativa y reduciendo errores manuales.</li>
-              <li>Diseño y desarrollo de plataformas digitales para clientes, con integración a APIs personalizadas.</li>
-              <li>Creación de sistemas internos administrativos y de soporte técnico utilizando Angular, Django y Tailwind CSS.</li>
+              <li><strong>Bot de carga de remesas:</strong> automatizó tareas manuales de 3-5 min por acción → ahora solo requieren verificación</li>
+              <li>Sistema de logística para gestión de entregas, stock y seguimiento de pedidos</li>
+              <li>Plataformas digitales para clientes con integración a APIs personalizadas</li>
+              <li>Sistemas internos administrativos y de soporte técnico</li>
             </ul>
             <div class="experience-tech">
               <span class="tech-tag">Angular</span>
@@ -267,73 +308,74 @@
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="habilidades" class="section skills-section">
-    <div class="container">
-      <h2 class="section-title">Habilidades Técnicas</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3 class="skill-category-title">Lenguajes</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">PHP</span>
-            <span class="skill-tag">C#</span>
-            <span class="skill-tag">Flutter</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 class="skill-category-title">Frameworks y Librerías</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Angular</span>
-            <span class="skill-tag">Django</span>
-            <span class="skill-tag">Tailwind CSS</span>
-            <span class="skill-tag">Bootstrap</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 class="skill-category-title">Bases de Datos</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">SQLite</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 class="skill-category-title">Herramientas</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">GitHub</span>
-            <span class="skill-tag">Slack</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">Postman</span>
-            <span class="skill-tag">Cursor</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 class="skill-category-title">Sistemas Operativos</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Windows</span>
-            <span class="skill-tag">Linux</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 class="skill-category-title">Idiomas</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Español: Nativo</span>
-            <span class="skill-tag">Inglés: B2</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Projects Section -->
   <section id="proyectos" class="section projects-section">
     <div class="container">
       <h2 class="section-title">Proyectos Destacados</h2>
       <div class="projects-grid">
+        <!-- Concesionario Premium Demo -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://lymdesarrolloweb.com.ar/assets/img/concesionario.png" alt="Concesionario Premium Demo" class="project-screenshot">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Concesionario Premium Demo</h3>
+            <p class="project-description">
+              Demo profesional y minimalista para un concesionario de autos. Catálogo con sistema de filtrado avanzado, 
+              búsqueda en tiempo real, CRUD completo y persistencia local. Diseño limpio sin elementos superfluos.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Next.js 16</span>
+              <span class="tech-tag">React 19</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Tailwind CSS v4</span>
+            </div>
+            <div class="project-links">
+              <a href="https://auto-dealer.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="link-icon">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Ver Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sistema de Turnos para Salones -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://lymdesarrolloweb.com.ar/assets/img/salonDeBelleza.png" alt="Sistema de Turnos para Salones" class="project-screenshot">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Sistema de Turnos para Salones</h3>
+            <p class="project-description">
+              SaaS completo de gestión de turnos para salones de belleza, peluquerías y centros de estética. 
+              Múltiples profesionales, pagos con Stripe, dashboard analytics, notificaciones automáticas y autenticación segura.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Next.js 14</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Stripe</span>
+            </div>
+            <div class="project-links">
+              <a href="https://salon-turnos-saas.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="link-icon">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Ver Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sistema de Logística Agronorte -->
         <div class="project-card">
           <div class="project-image">
             <div class="project-placeholder">
@@ -362,13 +404,7 @@
 
         <div class="project-card">
           <div class="project-image">
-            <div class="project-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-            </div>
+            <img src="https://lymdesarrolloweb.com.ar/assets/img/mascotasSJ.png" alt="Mascotas San Justo" class="project-screenshot">
           </div>
           <div class="project-content">
             <h3 class="project-title">Mascotas San Justo</h3>
@@ -422,13 +458,7 @@
 
         <div class="project-card">
           <div class="project-image">
-            <div class="project-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-            </div>
+            <img src="https://lymdesarrolloweb.com.ar/assets/img/lym.png" alt="LYM Desarrollo Web" class="project-screenshot">
           </div>
           <div class="project-content">
             <h3 class="project-title">LyM Desarrollo Web</h3>
@@ -487,11 +517,37 @@
   <section id="contacto" class="section contact-section">
     <div class="container">
       <h2 class="section-title">Contáctame</h2>
-      <div class="contact-content">
+      <div class="contact-wrapper">
+        <!-- Formulario -->
+        <div class="contact-form-container">
+          <form action="https://formspree.io/f/xgolqaee" method="POST" class="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" id="name" name="name" class="form-input" required placeholder="Tu nombre">
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" required placeholder="tu@email.com">
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Mensaje</label>
+              <textarea id="message" name="message" class="form-input form-textarea" required placeholder="Contame sobre tu proyecto..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span>Enviar Mensaje</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Info de contacto -->
         <div class="contact-info">
           <p class="contact-description">
-            ¿Tienes un proyecto en mente? Me encantaría escuchar sobre él.
-            No dudes en contactarme a través de cualquiera de estos medios.
+            ¿Tienes un proyecto en mente? Escribime y charlamos.
+            También podés descargar mi CV o contactarme por cualquiera de estos medios.
           </p>
           <div class="contact-actions">
             <a href="assets/MarcosLescano.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary" download>
@@ -537,7 +593,7 @@
               </svg>
               <span>LinkedIn</span>
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-method">
+            <a href="https://github.com/MarcosLesca" target="_blank" rel="noopener noreferrer" class="contact-method">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
               </svg>

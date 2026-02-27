@@ -49,6 +49,42 @@
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
+/* Tools Info Bar */
+.tools-info-bar {
+  @apply relative z-10 py-6 px-6 flex flex-wrap justify-center items-center gap-4 md:gap-0;
+  background: rgba(15, 23, 42, 0.3);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.tools-info-item {
+  @apply flex flex-col md:flex-row items-center gap-1 md:gap-2;
+}
+
+.tools-info-label {
+  @apply text-xs uppercase tracking-wider;
+  color: #94a3b8;
+}
+
+.tools-info-value {
+  @apply text-sm font-medium;
+  color: #e2e8f0;
+}
+
+.tools-info-divider {
+  @apply hidden md:block w-px h-8;
+  background: rgba(255,255,255,0.1);
+  margin: 0 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .tools-info-bar {
+    @apply gap-6;
+  }
+  .tools-info-divider {
+    display: none;
+  }
+}
+
 .tech-stack-container {
   @apply relative;
 }
@@ -622,6 +658,14 @@
   background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
 }
 
+.project-screenshot {
+  @apply w-full h-full object-cover transition-transform duration-500;
+}
+
+.project-card:hover .project-screenshot {
+  @apply scale-105;
+}
+
 .project-image::after {
   content: '';
   @apply absolute inset-0;
@@ -704,20 +748,51 @@
   @apply py-20 bg-white/5;
 }
 
-.contact-content {
-  @apply max-w-2xl mx-auto text-center;
+.contact-wrapper {
+  @apply grid lg:grid-cols-5 gap-8 max-w-6xl mx-auto;
+}
+
+.contact-form-container {
+  @apply lg:col-span-3 p-8 rounded-2xl bg-white/5 border border-white/10;
+}
+
+.contact-form {
+  @apply space-y-5;
+}
+
+.form-group {
+}
+
+.form-label {
+  @apply block text-sm font-medium text-slate-300 mb-2;
+}
+
+.form-input {
+  @apply w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all duration-300;
+}
+
+.form-textarea {
+  @apply min-h-[140px] resize-none;
+}
+
+.form-submit {
+  @apply w-full justify-center mt-2 gap-2;
+}
+
+.contact-info {
+  @apply lg:col-span-2 flex flex-col justify-center;
 }
 
 .contact-description {
-  @apply text-lg text-slate-300 mb-8 leading-relaxed;
+  @apply text-lg text-slate-300 mb-6 leading-relaxed;
 }
 
 .contact-actions {
-  @apply flex justify-center mb-8;
+  @apply mb-6;
 }
 
 .contact-actions .btn {
-  @apply inline-flex items-center gap-2;
+  @apply inline-flex items-center justify-center gap-2 w-full;
 }
 
 .contact-actions .btn-icon {
@@ -725,15 +800,15 @@
 }
 
 .contact-methods {
-  @apply flex flex-col sm:flex-row gap-6 justify-center;
+  @apply grid grid-cols-2 gap-3;
 }
 
 .contact-method {
-  @apply flex items-center gap-3 px-6 py-4 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-all duration-300;
+  @apply flex items-center gap-2 px-4 py-3 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-all duration-300 text-sm;
 }
 
 .contact-method svg {
-  @apply w-5 h-5 text-indigo-400;
+  @apply w-4 h-4 text-indigo-400 flex-shrink-0;
 }
 
 /* Footer */
